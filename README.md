@@ -1,5 +1,5 @@
 #PC Sales 
-A clean star schema data warehouse desgined for pc company between Africa and North America. 
+A clean star schema data warehouse desgined for pc company oparating between Africa and North America. 
 this repo contains the sql scripts to create database , 7 dimension tables and 1 fact tables for easy analysis and reportig .
 
 datadase design
