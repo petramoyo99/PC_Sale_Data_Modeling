@@ -1,21 +1,3 @@
-USE PC_Sales;
-GO
-
--- Fix the DIM_Date table name to DIM_DATE (standard uppercase)
-DROP TABLE IF EXISTS DIM_DATE;
-
--- Re-create it with proper name
-SELECT DISTINCT
-    Purchase_Date,
-    Ship_Date
-INTO DIM_DATE
-FROM dbo.pc_data_raw;
-
--- Add surrogate primary key
-ALTER TABLE DIM_DATE 
-ADD Date_Key INT IDENTITY(1,1) PRIMARY KEY;
-
-PRINT 'DIM_DATE table fixed successfully';
 
 USE PC_Sales;
 GO
@@ -23,7 +5,7 @@ GO
 DROP TABLE IF EXISTS FACT_PC_SALES;
 
 CREATE TABLE FACT_PC_SALES (
-    -- Foreign Keys to your Dimension Tables
+    
 
     SalesID                 INT IDENTITY(1,1) PRIMARY KEY,
     CustomerID          INT NOT NULL,
@@ -39,16 +21,15 @@ CREATE TABLE FACT_PC_SALES (
     Cost_Price            DECIMAL(18,2) NULL,
     Sale_Price            DECIMAL(18,2) NULL,
     Discount_Amount       DECIMAL(18,2) NULL,
-    Profit                DECIMAL(18,2) NULL,           -- You already have this in raw
+    Profit                DECIMAL(18,2) NULL,          
     Finance_Amount        DECIMAL(18,2) NULL,
     Cost_of_Repairs       DECIMAL(18,2) NULL,
     Total_Sales_per_Employee DECIMAL(18,2) NULL,
     PC_Market_Price       DECIMAL(18,2) NULL,
-    Credit_Score          INT NULL,                       -- Can be treated as a measure or moved if needed
+    Credit_Score          INT NULL,                      
 
     );
 
-PRINT 'FACT_PC_SALES table created successfully.';
 
 SELECT TOP 10 * FROM FACT_PC_SALES;
 
@@ -57,7 +38,7 @@ USE PC_Sales;
 GO
 
 INSERT INTO FACT_PC_SALES (
-    CustomerID,          -- or Customer_Key if you used _Key
+    CustomerID,          
     Date_Key,
     ShopID,
     ProductID,
@@ -75,25 +56,7 @@ INSERT INTO FACT_PC_SALES (
     PC_Market_Price,
     Credit_Score
 )
-SELECT 
-    c.CustomerID,
-    d.Date_Key,
-    s.ShopID,
-    p.ProductID,
-    pr.PriorityID,
-    ch.ChannelID,
-    pm.Payment_MethodID,
-    l.LocationID,
 
-    r.Cost_Price,
-    r.Sale_Price,
-    r.Discount_Amount,
-    r.Profit,
-    r.Finance_Amount,
-    r.Cost_of_Repairs,
-    r.Total_Sales_per_Employee,
-    r.PC_Market_Price,
-    r.Credit_Score
 
 FROM dbo.pc_data_raw r
 LEFT JOIN DIM_CUSTOMER c 
