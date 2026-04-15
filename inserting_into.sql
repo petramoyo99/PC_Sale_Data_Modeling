@@ -1,10 +1,9 @@
 USE [PC_Sales]
 GO
 
-/****** Object:  Table [dbo].[DIM_CHANNEL]    Script Date: 2026/04/10 00:06:24 ******/
 
 
---- DIM_CHANNELID TABLE CREATION 1
+--- DIM_CHANNEL TABLE CREATION 1
 
 DROP TABLE [PC_Sales].[dbo].[DIM_CHANNEL] 
 CREATE TABLE [dbo].[DIM_CHANNEL](
@@ -20,7 +19,7 @@ FROM [PC_Sales].[dbo].[pc_data_raw]
 SELECT * FROM [PC_Sales].[dbo].[DIM_CHANNEL]
 
 
---CREATING DIM_PAYMENTID2
+--CREATING DIM_PAYMENT
 
 DROP TABLE [PC_Sales].[dbo].[DIM_PAYMENT_METHOD]
 CREATE TABLE [dbo].[DIM_PAYMENT_METHOD](
@@ -34,7 +33,7 @@ FROM [PC_Sales].[dbo].[pc_data_raw]
 
 SELECT * FROM [PC_Sales].[dbo].[DIM_PAYMENT_METHOD]
 
---CREATING DIM_PRIORITYID 3
+--CREATING DIM_PRIORITY 3
 
 DROP TABLE [PC_Sales].[dbo].[DIM_PRIORITY]
 CREATE TABLE [dbo].[DIM_PRIORITY](
@@ -49,7 +48,7 @@ FROM [PC_Sales].[dbo].[pc_data_raw]
 SELECT * FROM [PC_Sales].[dbo].[DIM_PRIORITY]
 
 
---CREATING DIM_DATEID 4
+--CREATING DIM_DATE 4
 
 DROP TABLE [PC_Sales].[dbo].[DIM_Date]
 CREATE TABLE [dbo].[DIM_Date](
