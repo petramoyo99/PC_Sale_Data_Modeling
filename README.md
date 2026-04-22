@@ -2,9 +2,7 @@
 
 A clean **star schema** data warehouse designed for a PC company operating between **Africa** and **North America**.
 
-[Data Architecture](data_architecture.png)
-
-
+![Data Architecture](data_architecture.png)
 🚀 Project Overview
 
 This project simulates a real-world data engineering + analytics pipeline, where raw transactional data is transformed into a clean and scalable data warehouse model.
@@ -74,17 +72,7 @@ Uses surrogate keys
 Ensures referential integrity
 Prevents duplicate fact records
 
-▶️ Execution Flow
-EXEC sp_Load_DIM_CHANNEL;
-EXEC sp_Load_DIM_PAYMENT_METHOD;
-EXEC sp_Load_DIM_PRIORITY;
-EXEC sp_Load_DIM_DATE;
-EXEC sp_Load_DIM_CUSTOMER;
-EXEC sp_Load_DIM_SHOP;
-EXEC sp_Load_DIM_PRODUCT;
-EXEC sp_Load_DIM_LOCATION;
 
-EXEC sp_Load_FACT_PC_SALES;
 
 ### Dimension Tables
 - `dim_date`
