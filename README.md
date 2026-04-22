@@ -22,22 +22,14 @@ Which products generate the most profit?
 Which regions perform best?
 How do sales vary by channel and customer?
 
-## 🛠️ Tools Used
+Stores measurable business metrics such as:
 
-![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-![Draw.io](https://img.shields.io/badge/draw.io-%23F08705?style=for-the-badge&logo=diagrams.net&logoColor=white)
-![SSMS](https://img.shields.io/badge/SQL_Server_Management_Studio-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![Git Bash](https://img.shields.io/badge/Git_Bash-4F4F4F?style=for-the-badge&logo=git&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+Revenue & Profit
+Costs & Discounts
+Repairs & Financing
+Sales performance indicators
+⚙️ Stored Procedures (ETL Layer)
 
-📊 Data Engineering Highlights
-
-✔️ Star Schema Modeling
-✔️ ETL using Stored Procedures
-✔️ Data Deduplication (incremental loads)
-✔️ Surrogate Keys for consistency
-✔️ Analytical Views for reporting
 
 🏗️ Star Schema Architecture
 📌 Dimension Tables
@@ -51,13 +43,6 @@ dim_shop
 📌 Fact Table
 fact_pc_sales
 
-Stores measurable business metrics such as:
-
-Revenue & Profit
-Costs & Discounts
-Repairs & Financing
-Sales performance indicators
-⚙️ Stored Procedures (ETL Layer)
 
 This project uses SQL Server Stored Procedures to automate the data loading process.
 
@@ -88,6 +73,7 @@ Joins raw data with all dimensions
 Uses surrogate keys
 Ensures referential integrity
 Prevents duplicate fact records
+
 ▶️ Execution Flow
 EXEC sp_Load_DIM_CHANNEL;
 EXEC sp_Load_DIM_PAYMENT_METHOD;
@@ -99,7 +85,6 @@ EXEC sp_Load_DIM_PRODUCT;
 EXEC sp_Load_DIM_LOCATION;
 
 EXEC sp_Load_FACT_PC_SALES;
-## 🏗️ Star Schema Architecture
 
 ### Dimension Tables
 - `dim_date`
@@ -112,6 +97,14 @@ EXEC sp_Load_FACT_PC_SALES;
 
 ### Fact Table
 - `fact_pc_sales`
+- 
+📊 Data Engineering Highlights
+
+✔️ Star Schema Modeling
+✔️ ETL using Stored Procedures
+✔️ Data Deduplication (incremental loads)
+✔️ Surrogate Keys for consistency
+✔️ Analytical Views for reporting
 
 ## 📁 Quick Shortcuts
 
@@ -124,7 +117,6 @@ Click any link below to open the file directly:
 - 📥 **Insert Sample Data** → [inserting_into.sql](inserting_into.sql)
 - 📋 **Source Dataset** → [pc_data.csv](pc_data.csv)
 
-> **Tip**: To quickly open the PNG diagram, just click the link above or the image at the top of this page.
 
 ## 📁 Full Repository Files
 
@@ -134,74 +126,23 @@ Click any link below to open the file directly:
 - `pc_data.csv`
 - `data_architecture.png`
 - `pc_data_exellmodeling.et`
-📊 Data Engineering Highlights
 
-✔️ Star Schema Modeling
-✔️ ETL using Stored Procedures
-✔️ Data Deduplication (incremental loads)
-✔️ Surrogate Keys for consistency
-✔️ Analytical Views for reporting
+🔥 What Makes This Project Stand Out
+End-to-end data pipeline
+Real-world data warehouse design
+Clean, scalable SQL implementation
+Ready for Power BI integration
+## 🛠️ Tools Used
+![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Draw.io](https://img.shields.io/badge/draw.io-%23F08705?style=for-the-badge&logo=diagrams.net&logoColor=white)
+![SSMS](https://img.shields.io/badge/SQL_Server_Management_Studio-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Git Bash](https://img.shields.io/badge/Git_Bash-4F4F4F?style=for-the-badge&logo=git&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)
 
-🏗️ Star Schema Architecture
-📌 Dimension Tables
-dim_date
-dim_customer
-dim_location
-dim_channel
-dim_priority
-dim_product
-dim_shop
-📌 Fact Table
-fact_pc_sales
 
-Stores measurable business metrics such as:
-
-Revenue & Profit
-Costs & Discounts
-Repairs & Financing
-Sales performance indicators
-⚙️ Stored Procedures (ETL Layer)
-
-This project uses SQL Server Stored Procedures to automate the data loading process.
-
-🔹 Dimension Load Procedures
-
-Each dimension has its own procedure that:
-
-Extracts data from the raw table
-Removes duplicates
-Loads only new records
-
-Procedures:
-
-sp_Load_DIM_CUSTOMER
-sp_Load_DIM_PRODUCT
-sp_Load_DIM_LOCATION
-sp_Load_DIM_CHANNEL
-sp_Load_DIM_PRIORITY
-sp_Load_DIM_PAYMENT_METHOD
-sp_Load_DIM_DATE
-sp_Load_DIM_SHOP
-🧠 Fact Table Procedure
-sp_Load_FACT_PC_SALES
-
-This procedure:
-
-Joins raw data with all dimensions
-Uses surrogate keys
-Ensures referential integrity
-Prevents duplicate fact records
-▶️ Execution Flow
-EXEC sp_Load_DIM_CHANNEL;
-EXEC sp_Load_DIM_PAYMENT_METHOD;
-EXEC sp_Load_DIM_PRIORITY;
-EXEC sp_Load_DIM_DATE;
-EXEC sp_Load_DIM_CUSTOMER;
-EXEC sp_Load_DIM_SHOP;
-EXEC sp_Load_DIM_PRODUCT;
-EXEC sp_Load_DIM_LOCATION;
-
-EXEC sp_Load_FACT_PC_SALES;
+👩🏽‍💻 Author
+Petra Moyo
 
 
 
